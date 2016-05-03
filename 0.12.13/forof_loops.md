@@ -1,2 +1,0 @@
-# for..of loops
-

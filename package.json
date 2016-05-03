@@ -1,0 +1,29 @@
+{
+  "name": "es6-features",
+  "version": "1.0.0",
+  "description": "about es6 features book",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node --harmony --use_strict index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jarvin-Guan/es6-features.git"
+  },
+  "keywords": [
+    "es6"
+  ],
+  "author": "Jarvin-Guan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Jarvin-Guan/es6-features/issues"
+  },
+  "homepage": "https://github.com/Jarvin-Guan/es6-features#readme",
+  "dependencies": {
+    "co": "^4.6.0",
+    "promise": "^7.1.1",
+    "superagent": "^1.8.3",
+    "superagent-promise": "^1.1.0"
+  }
+}
