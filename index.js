@@ -1,57 +1,49 @@
 const Promise = this.Promise || require('promise');
 const agent = require('superagent-promise')(require('superagent'), Promise);
+const co = require('co');
+const async = require('async');
+const fs = require('fs');
 
 function getmatches(regex,html){
-    let results=new Array();
+    let results = [ ];
     let match;
-    while( ( match = regex.exec( html ) ) ) {
+    while( match = regex.exec( html ) ) {
         results.push(match);
     }
     return results;
 }
- 
-agent('GET', 'http://node.green/')
-  .end()
-  .then(function onResult(res) {
-    let html = res.text;
-    let versions =new Array();
+
+co(function* (){
+    let html = ( yield agent('GET', 'http://node.green/').end() ).text;
     let versionReS = /<th\s*[^>]+>\s*([^\s<>]+)[\s\S]*?<sub\s+class="flagged">([^<]+)/g;
+    let verisons = [ ];
     for(let m of getmatches(versionReS,html)){
-        versions.push(m[1]+"("+m[2]+")");
+        verisons.push(m[1]+"("+m[2]+")");
     };
-    
-    let largAreaReS = /<table\s+class="results">[\s\S]*?<h2\s+class="category">\s*<div\s*[\s\S]+?<a\s+href="[^>]+>([^<]+)([\s\S]+?)<\/table>/g;
     let smallAreaRes = /class="feature\s*sub">[\S\s]+?<a[^>]+>([^<]+)[\S\s]+?<\/tr>(?:\s*?<tr>\s*<td\s*class="feature\s*subsub">[^<]+[\s\S]+?<\/tr>\s*)+/g;
-    let detailAreaRes = /<td\s*class="feature\s*subsub">([^<]+)[^>]+>\?\s*[^>]+>(function\(\)\{[^\}]+)\}\s*<\/div>\s*<\/div>\s*<\/td>\s*<td[^>]+><div\s*class="(\S+)[\s\S]+?<\/td>\s*<td[^>]+><div\s*class="(\S+)[\s\S]+?<\/td>\s*<td[^>]+><div\s*class="(\S+)[\s\S]+?<\/td>\s*<td[^>]+><div\s*class="(\S+)[\s\S]+?<\/td>\s*<td[^>]+><div\s*class="(\S+)[\s\S]+?<\/td>\s*<td[^>]+><div\s*class="(\S+)[\s\S]+?<\/td>\s*<td[^>]+><div\s*class="(\S+)[\s\S]+?<\/td>\s*<td[^>]+><div\s*class="(\S+)[\s\S]+?<\/td>\s*<td[^>]+><div\s*class="(\S+)[\s\S]+?<\/td>\s*<td[^>]+><div\s*class="(\S+)[\s\S]+?<\/td>\s*<td[^>]+><div\s*class="(\S+)[\s\S]+?<\/td>/g;
-    let contents =new Array();
-    for(let m of getmatches(largAreaReS,html)){
-        var content = new Object();
-        content.bigTitle=m[1];
-        let bigArea=m[2];
-        for(let m of getmatches(smallAreaRes,bigArea)){
-            var smArea=new Array();
-            var smallcontent = new Object();
-            smallcontent.smallTitle=m[1];
-            let detailHtml = m[0];
-            for(let m of getmatches(detailAreaRes,detailHtml)){
-                var detailcontent = new Object();
-                let suports=new Array();
-                detailcontent.name=m[1];
-                detailcontent.func=m[2];
-                let i = 3;
-                while(m[i]){
-                    suports.push(m[i]);
-                    i++;
-                }
-                detailcontent.suports=suports;
-                smallcontent.detail=detailcontent;
-                smArea.push(smallcontent);
-                content.smArea=smArea;
-            }
+    let strTemp ='<td\\s*class="feature\\s*subsub">([^<]+)[^>]+>\\?\\s*[^>]+>(function\\(\\)[\\s\\S]+?>\\s*\\})\\s*<\\/div>\\s*<\\/div>\\s*<\\/td>';
+    
+    verisons.forEach(function(){
+        strTemp = strTemp + "\\s*<td[^>]+><div\\s*class=\"(\\S+)[\\s\\S]+?<\\/td>";
+    })
+    let detailAreaRes =new RegExp(strTemp,'g');
+    var blocks = [ ];
+    for(let m of getmatches(smallAreaRes,html)){
+        var capter = { };
+        capter.title = m[1];
+        capter.content = [ ];
+        var funcStr = m[0];
+        for(let m of getmatches(detailAreaRes,funcStr)){
+            capter.content.push({
+                name : m[1],
+                func : m[2],
+                flags: m.slice(3,-1)
+            });
         }
-        contents.push(content);
+        blocks.push(capter);
     };
-    console.log(1);
-  }, function onError(err) {
-      console.log(err.message);
-  });
+    let g=1;
+    fs.appendFileSync('message.md', '\n    * data to append');
+}).catch(function(err){
+    console.log(err);
+});

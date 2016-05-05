@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node --harmony --use_strict index.js"
+    "start": "node --harmony --use_strict index.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/Jarvin-Guan/es6-features#readme",
   "dependencies": {
+    "async": "^2.0.0-rc.3",
     "co": "^4.6.0",
     "promise": "^7.1.1",
     "superagent": "^1.8.3",
