@@ -1,208 +1,23 @@
 ###in strings
           
 ```
-function(){
-              <div class="code">return '\u{1d306}' == '\ud834\udf06';</div>}
+function() {
+    return '\u{1d306}' == '\ud834\udf06';
+}
 ```
 ###in identifiers
           
 ```
-function(){
-              <div class="code">var \u{102C0} = { \u{102C0} : 2 };
-return \u{102C0}['\ud800\udec0'] === 2;</div>}
-```
-###in strings
-          
-```
-function(){
-              <div class="code">return '\u{1d306}' == '\ud834\udf06';</div>}
-```
-###in identifiers
-          
-```
-function(){
-              <div class="code">var \u{102C0} = { \u{102C0} : 2 };
-return \u{102C0}['\ud800\udec0'] === 2;</div>}
-```
-###in strings
-          
-```
-function(){
-              <div class="code">return '\u{1d306}' == '\ud834\udf06';</div>}
-```
-###in identifiers
-          
-```
-function(){
-              <div class="code">var \u{102C0} = { \u{102C0} : 2 };
-return \u{102C0}['\ud800\udec0'] === 2;</div>}
-```
-###in strings
-          
-```
-function(){
-              <div class="code">return '\u{1d306}' == '\ud834\udf06';</div>}
-```
-###in identifiers
-          
-```
-function(){
-              <div class="code">var \u{102C0} = { \u{102C0} : 2 };
-return \u{102C0}['\ud800\udec0'] === 2;</div>}
-```
-###in strings
-          
-```
-function(){
-              <div class="code">return '\u{1d306}' == '\ud834\udf06';</div>}
-```
-###in identifiers
-          
-```
-function(){
-              <div class="code">var \u{102C0} = { \u{102C0} : 2 };
-return \u{102C0}['\ud800\udec0'] === 2;</div>}
-```
-###in strings
-          
-```
-function(){
-              <div class="code">return '\u{1d306}' == '\ud834\udf06';</div>}
-```
-###in identifiers
-          
-```
-function(){
-              <div class="code">var \u{102C0} = { \u{102C0} : 2 };
-return \u{102C0}['\ud800\udec0'] === 2;</div>}
-```
-###in strings
-          
-```
-function(){
-              <div class="code">return '\u{1d306}' == '\ud834\udf06';</div>}
-```
-###in identifiers
-          
-```
-function(){
-              <div class="code">var \u{102C0} = { \u{102C0} : 2 };
-return \u{102C0}['\ud800\udec0'] === 2;</div>}
-```
-###in strings
-          
-```
-function(){
-              <div class="code">return '\u{1d306}' == '\ud834\udf06';</div>}
-```
-###in identifiers
-          
-```
-function(){
-              <div class="code">var \u{102C0} = { \u{102C0} : 2 };
-return \u{102C0}['\ud800\udec0'] === 2;</div>}
-```
-###in strings
-          
-```
-function(){
-              <div class="code">return '\u{1d306}' == '\ud834\udf06';</div>}
-```
-###in identifiers
-          
-```
-function(){
-              <div class="code">var \u{102C0} = { \u{102C0} : 2 };
-return \u{102C0}['\ud800\udec0'] === 2;</div>}
-```
-###in strings
-          
-```
-function(){
-              <div class="code">return '\u{1d306}' == '\ud834\udf06';</div>}
-```
-###in identifiers
-          
-```
-function(){
-              <div class="code">var \u{102C0} = { \u{102C0} : 2 };
-return \u{102C0}['\ud800\udec0'] === 2;</div>}
-```
-###in strings
-          
-```
-function(){
-              <div class="code">return '\u{1d306}' == '\ud834\udf06';</div>}
-```
-###in identifiers
-          
-```
-function(){
-              <div class="code">var \u{102C0} = { \u{102C0} : 2 };
-return \u{102C0}['\ud800\udec0'] === 2;</div>}
-```
-###in strings
-          
-```
-function(){
-              <div class="code">return '\u{1d306}' == '\ud834\udf06';</div>}
-```
-###in identifiers
-          
-```
-function(){
-              <div class="code">var \u{102C0} = { \u{102C0} : 2 };
-return \u{102C0}['\ud800\udec0'] === 2;</div>}
-```
-###in strings
-          
-```
-function(){
-              <div class="code">return '\u{1d306}' == '\ud834\udf06';</div>}
-```
-###in identifiers
-          
-```
-function(){
-              <div class="code">var \u{102C0} = { \u{102C0} : 2 };
-return \u{102C0}['\ud800\udec0'] === 2;</div>}
-```
-###in strings
-          
-```
-function(){
-              <div class="code">return '\u{1d306}' == '\ud834\udf06';</div>}
-```
-###in identifiers
-          
-```
-function(){
-              <div class="code">var \u{102C0} = { \u{102C0} : 2 };
-return \u{102C0}['\ud800\udec0'] === 2;</div>}
-```
-###in strings
-          
-```
-function(){
-              <div class="code">return '\u{1d306}' == '\ud834\udf06';</div>}
-```
-###in identifiers
-          
-```
-function(){
-              <div class="code">var \u{102C0} = { \u{102C0} : 2 };
-return \u{102C0}['\ud800\udec0'] === 2;</div>}
-```
-###in strings
-          
-```
-function(){
-              <div class="code">return '\u{1d306}' == '\ud834\udf06';</div>}
-```
-###in identifiers
-          
-```
-function(){
-              <div class="code">var \u{102C0} = { \u{102C0} : 2 };
-return \u{102C0}['\ud800\udec0'] === 2;</div>}
+function() {
+    var\ u {
+        102 C0
+    } = {\
+        u {
+            102 C0
+        }: 2
+    };
+    return\ u {
+        102 C0
+    }['\ud800\udec0'] === 2;
+}
 ```

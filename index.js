@@ -5,6 +5,12 @@ const async = require('async');
 const fs = require('fs');
 const mkdirp = require('mkdirp');
 const path = require('path');
+const beautify = require('js-beautify').js_beautify;
+
+const htmlmap = {
+    '&quot;':'"',
+    '&amp;':'&' 
+}
 
 function getmatches(regex,html){
     let results = [ ];
@@ -75,8 +81,15 @@ co(function* (){
                         }
                         fs.appendFileSync(filename, "###"+content.name);
                         fs.appendFileSync(filename, "\n```\n");
-                       
-                        fs.appendFileSync(filename, content.func);
+                        
+                        let funcStr = content.func;
+                        funcStr = funcStr.replace(/\<[^>]+\>/g,'');
+                        async.forEachOf(htmlmap,function(value,key,callback){
+                            let Rex = new RegExp(key,'g');
+                            funcStr = funcStr.replace(Rex,value)
+                        })
+                        funcStr = beautify(funcStr);
+                        fs.appendFileSync(filename, funcStr);
                         fs.appendFileSync(filename, "\n```\n");
                     }
                 }
@@ -87,7 +100,6 @@ co(function* (){
     
     
     async.parallel(fileTask,function(err,results){
-        //category write
         let files =[];
         walk('./doc',files);
         var temp = path.dirname(files[0]).replace(/\.\/doc\//,'');

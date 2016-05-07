@@ -23,6 +23,7 @@
   "dependencies": {
     "async": "^2.0.0-rc.3",
     "co": "^4.6.0",
+    "js-beautify": "^1.6.2",
     "mkdirp": "^0.5.1",
     "promise": "^7.1.1",
     "superagent": "^1.8.3",
