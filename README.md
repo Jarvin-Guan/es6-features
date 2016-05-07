@@ -1,6 +1,6 @@
 # ES6 Features Book
 
-####作者：立地
+####作者：Jarvin
 
 #####本程序是爬虫，获取ES6在各个版本中的函数支持，目标网站：[ES6 Web](http://node.green/)
 
