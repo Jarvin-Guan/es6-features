@@ -8,7 +8,7 @@ const path = require( 'path' );
 const beautify = require( 'js-beautify' ).js_beautify;
 
 const htmlmap = {
-    '&quot;':'"',
+    '&quot;':'"', 
     '&amp;':'&' 
 };
 
