@@ -76,6 +76,11 @@ co( function* () {
                 for ( let content of block.content ) {
                     if ( content.flags[index].startsWith( 'Yes' ) ) {
                         let filename = './doc/' + version + '/' + block.title.replace( /\([^\)]\)/g, '' ) + '.md';
+                        filename = filename.replace( /\([^\)]+\)/g, '' );
+                        async.forEachOf( htmlmap, function( value, key, callback ) {
+                            let Rex = new RegExp( key, 'g' );
+                            filename = filename.replace( Rex, value );
+                        } );
                         if ( !fs.existsSync( filename ) ) {
                             fs.writeFileSync( filename, '' );
                         }
@@ -107,7 +112,8 @@ co( function* () {
         for ( let file of files ) {
             let pathname = path.dirname( file ).replace( /\.\/doc\//, '' );
             if ( pathname === temp ) {
-                fs.appendFileSync( './SUMMARY.md', '\n   * [' + path.basename( file ) + '](' + file.replace( /\([^\)]+\)/g, '' ) + ')' );
+                fs.appendFileSync( './SUMMARY.md', '\n   * [' + path.basename( file ) + '](' 
+                + file.replace( /\([^\)]+\)/g, '' ) + ')');
             }
             else {
                 temp = pathname;
