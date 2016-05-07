@@ -28,5 +28,8 @@
     "promise": "^7.1.1",
     "superagent": "^1.8.3",
     "superagent-promise": "^1.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^2.9.0"
   }
 }
