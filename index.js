@@ -107,6 +107,7 @@ co( function* () {
     async.parallel( fileTask, function( err, results ) {
         let files = [];
         walk( './doc', files );
+        files = files.reverse();
         var temp = path.dirname( files[0] ).replace( /\.\/doc\//, '' );
         fs.appendFileSync( './SUMMARY.md', '\n* [' + temp + ']()' );
         for ( let file of files ) {
