@@ -9,7 +9,9 @@ const beautify = require( 'js-beautify' ).js_beautify;
 
 const htmlmap = {
     '&quot;':'"', 
-    '&amp;':'&' 
+    '&amp;':'&' ,
+    '&gt;':'>',
+    '&lt;': '<'
 };
 
 function getmatches( regex, html ) {

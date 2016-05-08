@@ -2,7 +2,7 @@
           
 ```
 function() {
-    // Array.prototype.copyWithin -&gt; DeletePropertyOrThrow -&gt; [[Delete]]
+    // Array.prototype.copyWithin -> DeletePropertyOrThrow -> [[Delete]]
     var del = [];
     var p = new Proxy([0, 0, 0, , , , ], {
         deleteProperty: function(o, v) {
@@ -18,7 +18,7 @@ function() {
           
 ```
 function() {
-    // Array.prototype.pop -&gt; DeletePropertyOrThrow -&gt; [[Delete]]
+    // Array.prototype.pop -> DeletePropertyOrThrow -> [[Delete]]
     var del = [];
     var p = new Proxy([0, 0, 0], {
         deleteProperty: function(o, v) {
@@ -34,7 +34,7 @@ function() {
           
 ```
 function() {
-    // Array.prototype.reverse -&gt; DeletePropertyOrThrow -&gt; [[Delete]]
+    // Array.prototype.reverse -> DeletePropertyOrThrow -> [[Delete]]
     var del = [];
     var p = new Proxy([0, , 2, , 4, , ], {
         deleteProperty: function(o, v) {
@@ -50,7 +50,7 @@ function() {
           
 ```
 function() {
-    // Array.prototype.shift -&gt; DeletePropertyOrThrow -&gt; [[Delete]]
+    // Array.prototype.shift -> DeletePropertyOrThrow -> [[Delete]]
     var del = [];
     var p = new Proxy([0, , 0, , 0, 0], {
         deleteProperty: function(o, v) {
@@ -66,7 +66,7 @@ function() {
           
 ```
 function() {
-    // Array.prototype.splice -&gt; DeletePropertyOrThrow -&gt; [[Delete]]
+    // Array.prototype.splice -> DeletePropertyOrThrow -> [[Delete]]
     var del = [];
     var p = new Proxy([0, 0, 0, 0, , 0], {
         deleteProperty: function(o, v) {
@@ -82,7 +82,7 @@ function() {
           
 ```
 function() {
-    // Array.prototype.unshift -&gt; DeletePropertyOrThrow -&gt; [[Delete]]
+    // Array.prototype.unshift -> DeletePropertyOrThrow -> [[Delete]]
     var del = [];
     var p = new Proxy([0, 0, , 0, , 0], {
         deleteProperty: function(o, v) {

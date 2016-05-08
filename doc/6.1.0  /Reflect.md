@@ -128,7 +128,7 @@ function() {
     });
 
     var keys = Reflect.ownKeys(obj);
-    return keys.indexOf(s2) & gt; - 1 && keys.indexOf(s3) & gt; - 1 && keys.length === 2;
+    return keys.indexOf(s2) > -1 && keys.indexOf(s3) > -1 && keys.length === 2;
 }
 ```
 ###Reflect.apply

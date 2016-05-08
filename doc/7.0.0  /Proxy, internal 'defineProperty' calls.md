@@ -2,7 +2,7 @@
           
 ```
 function() {
-    // [[Set]] -&gt; [[DefineOwnProperty]]
+    // [[Set]] -> [[DefineOwnProperty]]
     var def = [];
     var p = new Proxy({
         foo: 1,
@@ -23,7 +23,7 @@ function() {
           
 ```
 function() {
-    // SetIntegrityLevel -&gt; DefinePropertyOrThrow -&gt; [[DefineOwnProperty]]
+    // SetIntegrityLevel -> DefinePropertyOrThrow -> [[DefineOwnProperty]]
     var def = [];
     var p = new Proxy({
         foo: 1,

@@ -9,12 +9,9 @@ function() {
           
 ```
 function() {
-    -- & gt;
-    A comment
-        & lt;
-    !--Another comment
-    var a = 3; & lt;
-    !--Another comment
+    -- > A comment
+    <!-- Another comment
+    var a = 3; <!-- Another comment
     return a === 3;
 }
 ```

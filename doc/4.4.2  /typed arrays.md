@@ -213,7 +213,7 @@ function() {
         'Float32Array',
         'Float64Array'
     ];
-    for (var i = 0; i & lt; constructors.length; i++) {
+    for (var i = 0; i < constructors.length; i++) {
         var arr = new global[constructors[i]](__createIterableObject([1, 2, 3]));
         if (arr.length !== 3 || arr[0] !== 1 || arr[1] !== 2 || arr[2] !== 3) return false;
     }

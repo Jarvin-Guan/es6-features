@@ -2,7 +2,7 @@
           
 ```
 function() {
-    // ToPrimitive -&gt; Get -&gt; [[Get]]
+    // ToPrimitive -> Get -> [[Get]]
     var get = [];
     var p = new Proxy({
         toString: Function()
@@ -20,7 +20,7 @@ function() {
           
 ```
 function() {
-    // CreateListFromArrayLike -&gt; Get -&gt; [[Get]]
+    // CreateListFromArrayLike -> Get -> [[Get]]
     var get = [];
     var p = new Proxy({
         length: 2,
@@ -40,7 +40,7 @@ function() {
           
 ```
 function() {
-    // HasBinding -&gt; Get -&gt; [[Get]]
+    // HasBinding -> Get -> [[Get]]
     var get = [];
     var p = new Proxy({
         foo: 1
@@ -61,7 +61,7 @@ function() {
           
 ```
 function() {
-    // CreateDynamicFunction -&gt; GetPrototypeFromConstructor -&gt; Get -&gt; [[Get]]
+    // CreateDynamicFunction -> GetPrototypeFromConstructor -> Get -> [[Get]]
     var get = [];
     var p = new Proxy(Function, {
         get: function(o, k) {
@@ -77,7 +77,7 @@ function() {
           
 ```
 function() {
-    // ClassDefinitionEvaluation -&gt; Get -&gt; [[Get]]
+    // ClassDefinitionEvaluation -> Get -> [[Get]]
     var get = [];
     var p = new Proxy(Function(), {
         get: function(o, k) {
@@ -93,8 +93,8 @@ function() {
           
 ```
 function() {
-    // IteratorComplete -&gt; Get -&gt; [[Get]]
-    // IteratorValue -&gt; Get -&gt; [[Get]]
+    // IteratorComplete -> Get -> [[Get]]
+    // IteratorValue -> Get -> [[Get]]
     var get = [];
     var iterable = {};
     iterable[Symbol.iterator] = function() {
@@ -114,7 +114,7 @@ function() {
     }
     var i = 0;
     for (var e of iterable) {
-        if (++i & gt; = 2) break;
+        if (++i >= 2) break;
     }
     return get + '' === "done,value,done,value";
 }
@@ -123,7 +123,7 @@ function() {
           
 ```
 function() {
-    // ToPropertyDescriptor -&gt; Get -&gt; [[Get]]
+    // ToPropertyDescriptor -> Get -> [[Get]]
     var get = [];
     var p = new Proxy({
         enumerable: true,
@@ -151,7 +151,7 @@ function() {
           
 ```
 function() {
-    // Object.assign -&gt; Get -&gt; [[Get]]
+    // Object.assign -> Get -> [[Get]]
     var get = [];
     var p = new Proxy({
         foo: 1,
@@ -170,7 +170,7 @@ function() {
           
 ```
 function() {
-    // Object.defineProperties -&gt; Get -&gt; [[Get]]
+    // Object.defineProperties -> Get -> [[Get]]
     var get = [];
     var p = new Proxy({
         foo: {},
@@ -189,7 +189,7 @@ function() {
           
 ```
 function() {
-    // Function.prototype.bind -&gt; Get -&gt; [[Get]]
+    // Function.prototype.bind -> Get -> [[Get]]
     var get = [];
     var p = new Proxy(Function(), {
         get: function(o, k) {
@@ -205,7 +205,7 @@ function() {
           
 ```
 function() {
-    // Error.prototype.toString -&gt; Get -&gt; [[Get]]
+    // Error.prototype.toString -> Get -> [[Get]]
     var get = [];
     var p = new Proxy({}, {
         get: function(o, k) {
@@ -221,7 +221,7 @@ function() {
           
 ```
 function() {
-    // String.raw -&gt; Get -&gt; [[Get]]
+    // String.raw -> Get -> [[Get]]
     var get = [];
     var raw = new Proxy({
         length: 2,
@@ -249,7 +249,7 @@ function() {
           
 ```
 function() {
-    // RegExp -&gt; Get -&gt; [[Get]]
+    // RegExp -> Get -> [[Get]]
     var get = [];
     var re = {
         constructor: null
@@ -269,7 +269,7 @@ function() {
           
 ```
 function() {
-    // RegExp.prototype.flags -&gt; Get -&gt; [[Get]]
+    // RegExp.prototype.flags -> Get -> [[Get]]
     var get = [];
     var p = new Proxy({}, {
         get: function(o, k) {
@@ -285,7 +285,7 @@ function() {
           
 ```
 function() {
-    // RegExp.prototype.toString -&gt; Get -&gt; [[Get]]
+    // RegExp.prototype.toString -> Get -> [[Get]]
     var get = [];
     var p = new Proxy({}, {
         get: function(o, k) {
@@ -301,7 +301,7 @@ function() {
           
 ```
 function() {
-    // Array.from -&gt; Get -&gt; [[Get]]
+    // Array.from -> Get -> [[Get]]
     var get = [];
     var p = new Proxy({
         length: 2,
@@ -321,7 +321,7 @@ function() {
           
 ```
 function() {
-    // Array.prototype.pop -&gt; Get -&gt; [[Get]]
+    // Array.prototype.pop -> Get -> [[Get]]
     var get = [];
     var p = new Proxy([0, 1, 2, 3], {
         get: function(o, k) {
@@ -337,7 +337,7 @@ function() {
           
 ```
 function() {
-    // Array.prototype.reverse -&gt; Get -&gt; [[Get]]
+    // Array.prototype.reverse -> Get -> [[Get]]
     var get = [];
     var p = new Proxy([0, , 2, , 4, , ], {
         get: function(o, k) {
@@ -353,7 +353,7 @@ function() {
           
 ```
 function() {
-    // Array.prototype.shift -&gt; Get -&gt; [[Get]]
+    // Array.prototype.shift -> Get -> [[Get]]
     var get = [];
     var p = new Proxy([0, 1, 2, 3], {
         get: function(o, k) {
@@ -369,7 +369,7 @@ function() {
           
 ```
 function() {
-    // Array.prototype.toString -&gt; Get -&gt; [[Get]]
+    // Array.prototype.toString -> Get -> [[Get]]
     var get = [];
     var p = new Proxy({
         join: Function()
@@ -387,7 +387,7 @@ function() {
           
 ```
 function() {
-    // JSON.stringify -&gt; Get -&gt; [[Get]]
+    // JSON.stringify -> Get -> [[Get]]
     var get = [];
     var p = new Proxy({}, {
         get: function(o, k) {
@@ -403,7 +403,7 @@ function() {
           
 ```
 function() {
-    // Promise resolve functions -&gt; Get -&gt; [[Get]]
+    // Promise resolve functions -> Get -> [[Get]]
     var get = [];
     var p = new Proxy({}, {
         get: function(o, k) {
@@ -421,7 +421,7 @@ function() {
           
 ```
 function() {
-    // String.prototype.replace functions -&gt; Get -&gt; [[Get]]
+    // String.prototype.replace functions -> Get -> [[Get]]
     var get = [];
     var proxied = {};
     proxied[Symbol.toPrimitive] = Function();
@@ -439,7 +439,7 @@ function() {
           
 ```
 function() {
-    // String.prototype.split functions -&gt; Get -&gt; [[Get]]
+    // String.prototype.split functions -> Get -> [[Get]]
     var get = [];
     var proxied = {};
     proxied[Symbol.toPrimitive] = Function();
@@ -457,8 +457,8 @@ function() {
           
 ```
 function() {
-    // Date.prototype.toJSON -&gt; ToPrimitive -&gt; Get -&gt; [[Get]]
-    // Date.prototype.toJSON -&gt; Invoke -&gt; GetMethod -&gt; GetV -&gt; [[Get]]
+    // Date.prototype.toJSON -> ToPrimitive -> Get -> [[Get]]
+    // Date.prototype.toJSON -> Invoke -> GetMethod -> GetV -> [[Get]]
     var get = [];
     var p = new Proxy({
         toString: Function(),

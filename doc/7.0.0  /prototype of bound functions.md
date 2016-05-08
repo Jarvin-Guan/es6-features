@@ -37,8 +37,7 @@ function() {
 ```
 function() {
     function correctProtoBound(proto) {
-        var f = () = & gt;
-        5;
+        var f = () => 5;
         if (Object.setPrototypeOf) {
             Object.setPrototypeOf(f, proto);
         } else {

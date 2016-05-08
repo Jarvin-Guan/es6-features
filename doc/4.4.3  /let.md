@@ -68,7 +68,7 @@ function() {
 function() {
     'use strict';
     let scopes = [];
-    for (let i = 0; i & lt; 2; i++) {
+    for (let i = 0; i < 2; i++) {
         scopes.push(function() {
             return i;
         });

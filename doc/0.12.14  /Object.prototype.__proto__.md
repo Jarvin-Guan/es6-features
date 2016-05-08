@@ -46,6 +46,6 @@ function() {
           
 ```
 function() {
-    return Object.getOwnPropertyNames(Object.prototype).indexOf('__proto__') & gt; - 1;
+    return Object.getOwnPropertyNames(Object.prototype).indexOf('__proto__') > -1;
 }
 ```

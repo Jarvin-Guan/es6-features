@@ -18,15 +18,14 @@ function() {
           
 ```
 function() {
-    return (() = & gt; 5)() === 5;
+    return (() => 5)() === 5;
 }
 ```
 ###1 parameter, no brackets
           
 ```
 function() {
-    var b = x = & gt;
-    x + "foo";
+    var b = x => x + "foo";
     return (b("fee fie foe ") === "fee fie foe foo");
 }
 ```
@@ -34,8 +33,7 @@ function() {
           
 ```
 function() {
-    var c = (v, w, x, y, z) = & gt;
-    "" + v + w + x + y + z;
+    var c = (v, w, x, y, z) => "" + v + w + x + y + z;
     return (c(6, 5, 4, 3, 2) === "65432");
 }
 ```
@@ -46,8 +44,7 @@ function() {
     var d = {
         x: "bar",
         y: function() {
-            return z = & gt;
-            this.x + z;
+            return z => this.x + z;
         }
     }.y();
     var e = {
@@ -64,8 +61,7 @@ function() {
     var d = {
         x: "foo",
         y: function() {
-            return () = & gt;
-            this.x;
+            return () => this.x;
         }
     };
     var e = {
@@ -81,8 +77,7 @@ function() {
     var d = {
         x: "bar",
         y: function() {
-            return z = & gt;
-            this.x + z;
+            return z => this.x + z;
         }
     };
     var e = {
@@ -96,8 +91,7 @@ function() {
 ```
 function() {
     var f = (function() {
-        return z = & gt;
-        arguments[0];
+        return z => arguments[0];
     }(5));
     return f(6) === 5;
 }
@@ -106,9 +100,9 @@ function() {
           
 ```
 function() {
-    return (() = & gt; {
+    return (() => {
         try {
-            Function("x\n =&gt; 2")();
+            Function("x\n => 2")();
         } catch (e) {
             return true;
         }
@@ -119,9 +113,9 @@ function() {
           
 ```
 function() {
-    return (() = & gt; {
+    return (() => {
         try {
-            Function("0 || () =&gt; 2")();
+            Function("0 || () => 2")();
         } catch (e) {
             return true;
         }
@@ -132,8 +126,7 @@ function() {
           
 ```
 function() {
-    var a = () = & gt;
-    5;
+    var a = () => 5;
     return !a.hasOwnProperty("prototype");
 }
 ```
@@ -150,8 +143,7 @@ function() {
     }
     class C extends B {
         constructor() {
-            var callSuper = () = & gt;
-            super('foo');
+            var callSuper = () => super('foo');
             callSuper();
         }
     }
@@ -169,8 +161,7 @@ function() {
     }
     class C extends B {
         baz() {
-            return x = & gt;
-            super.qux();
+            return x => super.qux();
         }
     }
     var arrow = new C().baz();
@@ -182,8 +173,7 @@ function() {
 ```
 function() {
     function C() {
-        return x = & gt;
-        new.target;
+        return x => new.target;
     }
     return new C()() === C && C()() === undefined;
 }

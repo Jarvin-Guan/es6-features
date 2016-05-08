@@ -2,7 +2,7 @@
           
 ```
 function() {
-    // SetIntegrityLevel -&gt; [[OwnPropertyKeys]]
+    // SetIntegrityLevel -> [[OwnPropertyKeys]]
     var ownKeysCalled = 0;
     var p = new Proxy({}, {
         ownKeys: function(o) {
@@ -18,7 +18,7 @@ function() {
           
 ```
 function() {
-    // TestIntegrityLevel -&gt; [[OwnPropertyKeys]]
+    // TestIntegrityLevel -> [[OwnPropertyKeys]]
     var ownKeysCalled = 0;
     var p = new Proxy(Object.preventExtensions({}), {
         ownKeys: function(o) {
@@ -34,7 +34,7 @@ function() {
           
 ```
 function() {
-    // SerializeJSONObject -&gt; EnumerableOwnNames -&gt; [[OwnPropertyKeys]]
+    // SerializeJSONObject -> EnumerableOwnNames -> [[OwnPropertyKeys]]
     var ownKeysCalled = 0;
     var p = new Proxy({}, {
         ownKeys: function(o) {

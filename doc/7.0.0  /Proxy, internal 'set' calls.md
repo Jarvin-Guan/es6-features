@@ -2,7 +2,7 @@
           
 ```
 function() {
-    // Object.assign -&gt; Set -&gt; [[Set]]
+    // Object.assign -> Set -> [[Set]]
     var set = [];
     var p = new Proxy({}, {
         set: function(o, k, v) {
@@ -22,7 +22,7 @@ function() {
           
 ```
 function() {
-    // Array.from -&gt; Set -&gt; [[Set]]
+    // Array.from -> Set -> [[Set]]
     var set = [];
     var p = new Proxy({}, {
         set: function(o, k, v) {
@@ -45,7 +45,7 @@ function() {
           
 ```
 function() {
-    // Array.from -&gt; Set -&gt; [[Set]]
+    // Array.from -> Set -> [[Set]]
     var set = [];
     var p = new Proxy({}, {
         set: function(o, k, v) {
@@ -64,7 +64,7 @@ function() {
           
 ```
 function() {
-    // Array.prototype.copyWithin -&gt; Set -&gt; [[Set]]
+    // Array.prototype.copyWithin -> Set -> [[Set]]
     var set = [];
     var p = new Proxy([1, 2, 3, 4, 5, 6], {
         set: function(o, k, v) {
@@ -81,7 +81,7 @@ function() {
           
 ```
 function() {
-    // Array.prototype.fill -&gt; Set -&gt; [[Set]]
+    // Array.prototype.fill -> Set -> [[Set]]
     var set = [];
     var p = new Proxy([1, 2, 3, 4, 5, 6], {
         set: function(o, k, v) {
@@ -98,7 +98,7 @@ function() {
           
 ```
 function() {
-    // Array.prototype.pop -&gt; Set -&gt; [[Set]]
+    // Array.prototype.pop -> Set -> [[Set]]
     var set = [];
     var p = new Proxy([], {
         set: function(o, k, v) {
@@ -115,7 +115,7 @@ function() {
           
 ```
 function() {
-    // Array.prototype.push -&gt; Set -&gt; [[Set]]
+    // Array.prototype.push -> Set -> [[Set]]
     var set = [];
     var p = new Proxy([], {
         set: function(o, k, v) {
@@ -132,7 +132,7 @@ function() {
           
 ```
 function() {
-    // Array.prototype.reverse -&gt; Set -&gt; [[Set]]
+    // Array.prototype.reverse -> Set -> [[Set]]
     var set = [];
     var p = new Proxy([0, 0, 0, , ], {
         set: function(o, k, v) {
@@ -149,7 +149,7 @@ function() {
           
 ```
 function() {
-    // Array.prototype.shift -&gt; Set -&gt; [[Set]]
+    // Array.prototype.shift -> Set -> [[Set]]
     var set = [];
     var p = new Proxy([0, 0, , 0], {
         set: function(o, k, v) {
@@ -166,7 +166,7 @@ function() {
           
 ```
 function() {
-    // Array.prototype.splice -&gt; Set -&gt; [[Set]]
+    // Array.prototype.splice -> Set -> [[Set]]
     var set = [];
     var p = new Proxy([1, 2, 3], {
         set: function(o, k, v) {
@@ -183,7 +183,7 @@ function() {
           
 ```
 function() {
-    // Array.prototype.unshift -&gt; Set -&gt; [[Set]]
+    // Array.prototype.unshift -> Set -> [[Set]]
     var set = [];
     var p = new Proxy([0, 0, , 0], {
         set: function(o, k, v) {

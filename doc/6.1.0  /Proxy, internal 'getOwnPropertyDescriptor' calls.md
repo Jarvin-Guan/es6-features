@@ -2,7 +2,7 @@
           
 ```
 function() {
-    // [[Set]] -&gt; [[GetOwnProperty]]
+    // [[Set]] -> [[GetOwnProperty]]
     var gopd = [];
     var p = new Proxy({}, {
         getOwnPropertyDescriptor: function(o, v) {
@@ -19,7 +19,7 @@ function() {
           
 ```
 function() {
-    // Object.assign -&gt; [[GetOwnProperty]]
+    // Object.assign -> [[GetOwnProperty]]
     var gopd = [];
     var p = new Proxy({
         foo: 1,
@@ -38,7 +38,7 @@ function() {
           
 ```
 function() {
-    // Object.prototype.hasOwnProperty -&gt; HasOwnProperty -&gt; [[GetOwnProperty]]
+    // Object.prototype.hasOwnProperty -> HasOwnProperty -> [[GetOwnProperty]]
     var gopd = [];
     var p = new Proxy({
         foo: 1,
@@ -57,7 +57,7 @@ function() {
           
 ```
 function() {
-    // Function.prototype.bind -&gt; HasOwnProperty -&gt; [[GetOwnProperty]]
+    // Function.prototype.bind -> HasOwnProperty -> [[GetOwnProperty]]
     var gopd = [];
     var p = new Proxy(Function(), {
         getOwnPropertyDescriptor: function(o, v) {

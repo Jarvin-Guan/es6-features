@@ -103,7 +103,7 @@ function() {
         return 0;
     };
 
-    a & gt; = 0;
+    a >= 0;
     b in {};
     c == 0;
     return passed === 3;
